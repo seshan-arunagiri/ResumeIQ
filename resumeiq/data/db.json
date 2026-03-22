@@ -1,0 +1,31 @@
+{
+  "users": [
+    {
+      "id": "admin_1",
+      "name": "Seshan",
+      "email": "seshan.arunagiri@gmail.com",
+      "password": "Seshan@123",
+      "role": "admin",
+      "isActive": true,
+      "createdAt": "2026-03-01T00:00:00.000Z"
+    }
+  ],
+  "students": [],
+  "companies": [
+    {
+      "id": "company_1773381212320",
+      "name": "tcs",
+      "minCgpa": 0,
+      "requiredSkills": [],
+      "minLeetcodeSolved": 0,
+      "weights": {
+        "resume": 35,
+        "leetcode": 30,
+        "github": 20,
+        "cgpa": 15
+      },
+      "createdAt": "2026-03-13T05:53:32.320Z"
+    }
+  ],
+  "shortlists": []
+}

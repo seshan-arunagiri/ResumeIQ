@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+/* ── CSS Custom Properties ── */
+:root {
+  --primary: #004643;
+  --primary-dark: #003330;
+  --primary-light: #006b65;
+  --background: #F0EDE5;
+  --card-bg: #ffffff;
+  --text-primary: #1a1a1a;
+  --text-secondary: #4a4a4a;
+  --text-muted: #6b7280;
+  --border: #d4cfc8;
+  --success: #16a34a;
+  --warning: #d97706;
+  --danger: #dc2626;
+  --info: #2563eb;
+}
+
+/* ── Base Styles ── */
+body {
+  background-color: var(--background);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+p {
+  color: var(--text-secondary);
+}
+
+/* ── Input Fixes (Problem 2 — visible input text) ── */
+input,
+textarea,
+select {
+  color: #1a1a1a !important;
+  font-weight: 500;
+  background-color: #ffffff;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #9ca3af !important;
+  font-weight: 400;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 2px rgba(0, 70, 67, 0.15) !important;
+}
+
+/* ── Table text visibility ── */
+td, th {
+  color: var(--text-primary);
+}
+
+/* ── Scrollbar styling ── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: #c4bfb8;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a89f96;
+}
