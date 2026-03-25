@@ -29,19 +29,38 @@ export default function ProtectedLayout({
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#F0EDE5]">
-        <div className="animate-pulse flex flex-col items-center">
-            <div className="h-12 w-12 bg-[#004643] rounded-full mb-4"></div>
-            <div className="text-[#004643] font-semibold">Loading ResumeIQ...</div>
+      <div
+        style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#050505' }}
+      >
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
+          {/* Spinning ring */}
+          <div style={{
+            width: 52, height: 52, borderRadius: '50%',
+            border: '3px solid rgba(123,47,255,0.2)',
+            borderTopColor: '#7B2FFF',
+            animation: 'spin 0.9s linear infinite',
+          }} />
+          <span style={{ color: '#9b92c8', fontSize: 14, fontWeight: 500, letterSpacing: '0.05em' }}>
+            Loading ResumeIQ...
+          </span>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#F0EDE5] flex">
+    <div style={{ minHeight: '100vh', display: 'flex', background: '#050505' }}>
       <Sidebar />
-      <main className="flex-1 overflow-x-hidden overflow-y-auto bg-[#F0EDE5] p-6 lg:p-8">
+      <main style={{
+        flex: 1,
+        overflowX: 'hidden',
+        overflowY: 'auto',
+        padding: '32px',
+        background: '#050505',
+        /* subtle dot grid */
+        backgroundImage: 'radial-gradient(rgba(123,47,255,0.08) 1px, transparent 1px)',
+        backgroundSize: '28px 28px',
+      }}>
         {children}
       </main>
     </div>

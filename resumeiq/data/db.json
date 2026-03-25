@@ -25,6 +25,20 @@
         "cgpa": 15
       },
       "createdAt": "2026-03-13T05:53:32.320Z"
+    },
+    {
+      "id": "company_1774188550938",
+      "name": "Aws",
+      "minCgpa": 0,
+      "requiredSkills": [],
+      "minLeetcodeSolved": 0,
+      "weights": {
+        "resume": 35,
+        "leetcode": 30,
+        "github": 20,
+        "cgpa": 15
+      },
+      "createdAt": "2026-03-22T14:09:10.938Z"
     }
   ],
   "shortlists": []

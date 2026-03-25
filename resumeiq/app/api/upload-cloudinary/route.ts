@@ -21,7 +21,6 @@ export async function POST(req: Request) {
     await writeFile(tempFilePath, buffer);
 
     const url = await uploadPDF(tempFilePath);
-    
     // Cleanup
     await unlink(tempFilePath).catch(console.error);
 

@@ -18,7 +18,14 @@ from dotenv import load_dotenv
 from database import get_db
 
 _HERE = os.path.dirname(os.path.abspath(__file__))
-load_dotenv(os.path.join(_HERE, ".env"), override=True)
+_ENV_PATH = os.path.join(_HERE, ".env")
+load_dotenv(_ENV_PATH, override=True)
+
+# --- Startup diagnostic (runs on import) ---
+_startup_key = os.getenv("GROQ_API_KEY", "")
+print(f"[ENV] .env path   : {_ENV_PATH}")
+print(f"[ENV] .env exists : {os.path.isfile(_ENV_PATH)}")
+print(f"[ENV] GROQ_API_KEY: {'NOT SET' if not _startup_key else _startup_key[:4] + '****'}")
 
 # ---------------------------------------------------------------------------
 # Groq client (lazy singleton)
@@ -29,18 +36,15 @@ def _get_client():
     global _client
     if _client is None:
         # Force-reload .env using an absolute path so we never rely on CWD.
-        env_path = os.path.join(_HERE, ".env")
-        load_dotenv(env_path, override=True)
-        print(f"[ENV] Loading .env from: {env_path}")
-        print(f"[ENV] .env exists: {os.path.isfile(env_path)}")
+        load_dotenv(_ENV_PATH, override=True)
 
-        api_key = os.getenv("GROQ_API_KEY")
-        print(f"[ENV] GROQ_API_KEY found: {bool(api_key)}")
+        api_key = os.getenv("GROQ_API_KEY", "")
+        print(f"[GROQ CLIENT] Key starts with: {'NOT SET' if not api_key else api_key[:4] + '****'}")
 
         if not api_key:
             raise RuntimeError(
                 f"GROQ_API_KEY is missing or empty.\n"
-                f"  .env path checked: {env_path}\n"
+                f"  .env path checked: {_ENV_PATH}\n"
                 f"  Add this line to the file:\n"
                 f"  GROQ_API_KEY=your_key_here"
             )
